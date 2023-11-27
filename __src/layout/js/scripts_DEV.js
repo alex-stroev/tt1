@@ -5,8 +5,10 @@ import { createElementFromHTML } from "./helpers";
 //////////////////////////////////////////////////////////////////////////////////////////
 var myHeaders = new Headers();
 
-const token = "P3RTS9G-2YH4XAV-QWKVWAZ-E9XFFDQ";
-myHeaders.append("X-API-KEY", token);
+const tokenMy = "E5H2ZM1-KS24HC0-GN1GASP-Y6E51QF";
+const tokenTheir = "P3RTS9G-2YH4XAV-QWKVWAZ-E9XFFDQ";
+
+myHeaders.append("X-API-KEY", tokenMy);
 
 var requestOptions = {
     method: "GET",
