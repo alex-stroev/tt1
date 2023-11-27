@@ -1,0 +1,59 @@
+@function strip-unit($number) {
+    @if type-of($number) == "number" and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+/////////////////////////////////////////////////////////////
+/// Типографика
+/////////////////////////////////////////////////////////////
+@mixin fluid_typo($startwidth, $startsize, $endwidth, $endsize) {
+    $startwidth: (strip-unit($startwidth));
+    $startsize: (strip-unit($startsize));
+    $endwidth: (strip-unit($endwidth));
+    $endsize: (strip-unit($endsize));
+
+    @media screen and (max-width: ($startwidth * 1px)) {
+        font-size: ($startsize/$startwidth * 100vw);
+    }
+
+    @media screen and (max-width: ($endwidth * 1px)) {
+        font-size: ($endsize * 1px);
+    }
+}
+
+/////////////////////////////////////////////////////////////
+/// Типографика - авто
+/////////////////////////////////////////////////////////////
+@mixin fluid_typo_auto($startwidth, $startsize, $endsize) {
+    $startwidth: (strip-unit($startwidth));
+    $startsize: (strip-unit($startsize));
+    $endsize: (strip-unit($endsize));
+    $endwidth: round($startwidth * $endsize/$startsize);
+
+    @media screen and (max-width: ($startwidth * 1px)) {
+        font-size: ($startsize/$startwidth * 100vw);
+    }
+
+    @media screen and (max-width: ($endwidth * 1px)) {
+        font-size: ($endsize * 1px);
+    }
+}
+
+@mixin shadow() {
+    box-shadow: 0 13px 31px rgba(12, 20, 33, 0.04),
+        0 9.45547px 20.8947px rgba(12, 20, 33, 0.032),
+        0 6.58125px 13.5141px rgba(12, 20, 33, 0.027),
+        0 4.31641px 8.38574px rgba(12, 20, 33, 0.023),
+        0 2.6px 5.0375px rgba(12, 20, 33, 0.02),
+        0 1.37109px 2.99707px rgba(12, 20, 33, 0.017),
+        0 0.56875px 1.79219px rgba(12, 20, 33, 0.013), inset 0 2px 1px #fff;
+}
+
+@mixin header2 {
+    font-size: 36px;
+    margin: 0.5em 0;
+    @include fluid_typo_auto(1024, 36, 20);
+}

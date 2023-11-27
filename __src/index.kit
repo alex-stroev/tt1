@@ -1,0 +1,42 @@
+<!-- $title = Landing 1 -->
+<!-- $description = Landing 1 -->
+<!-- @import "layout/__header.kit" -->
+<div class="kernel">
+    <div class="site-header"><h1>Заголовок сайта</h1></div>
+    <div class="movies-catalog">
+        <div class="movies-catalog__header"><h2>Фильмы</h2></div>
+        <div class="movies-catalog__body js-movies-catalog"></div>
+    </div>
+
+    <div class="preloader js-preloader">
+        <div class="preloader__text">Загружается...</div>
+    </div>
+
+    <div class="form">
+        <div class="form__header"><h2>Форма</h2></div>
+        <form action="" method="post">
+            <div class="form__row">
+                <input
+                    type="text"
+                    id="name"
+                    class="form__input"
+                    placeholder=""
+                /><label for="name" class="form__label">Имя</label>
+            </div>
+            <div class="form__row">
+                <input
+                    type="text"
+                    id="tel"
+                    class="form__input"
+                    placeholder=""
+                /><label for="tel" class="form__label">Телефон</label>
+            </div>
+            <div class="form__row">
+                <input type="submit" class="form__submit" disabled />
+            </div>
+        </form>
+        <div class="js-form-result"></div>
+    </div>
+</div>
+
+<!-- @import "layout/__footer.kit" -->
