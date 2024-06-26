@@ -50,7 +50,7 @@ const moviesCatalog = document.querySelector(".js-movies-catalog");
 const showMovies = (item) => {
     const block = createElementFromHTML(`
     <div class="movie-item">
-    <div class="movie-item__title"><h3>${item.name}</h3></div>
+    <div class="movie-item__title"><h3>${item.name || item.alternativeName || "Название не указано"}</h3></div>
     <div class="movie-item__pic">
         <img src="${item.poster.previewUrl}" alt="${item.name}" />
     </div>
